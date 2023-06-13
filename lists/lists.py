@@ -2,10 +2,9 @@ class ListExercise:
     @staticmethod
     def max(input_list: list[int]) -> int:
         max_item = input_list[0]
-        for item in input_list[1::]:
-            if item <= max_item:
-                continue
-            max_item = item
+        for item in input_list[1:]:
+            if item > max_item:
+                max_item = item
 
         return max_item
 
@@ -23,7 +22,7 @@ class ListExercise:
         if left > right:
             return -1
 
-        middle = left + (right - left) // 2
+        middle = (left + right) // 2
         value = input_list[middle]
 
         if value == query:
