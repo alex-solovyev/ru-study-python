@@ -34,7 +34,7 @@ class FlaskExercise:
         @app.delete("/user/<string:name>")
         def delete_user(name: str) -> tuple:
             FlaskExercise.abort_if_user_not_found(name)
-            FlaskExercise.users.pop(name)
+            del FlaskExercise.users[name]
             return "", HTTPStatus.NO_CONTENT
 
     @staticmethod
